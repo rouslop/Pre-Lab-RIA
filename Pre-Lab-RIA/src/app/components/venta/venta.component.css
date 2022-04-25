@@ -1,0 +1,13 @@
+/*aca van los estilos*/
+ul {
+    justify-content: center;
+    justify-items: center;
+}
+
+li{
+    padding: 10px;
+}
+
+button{
+    margin: 20px;
+}
