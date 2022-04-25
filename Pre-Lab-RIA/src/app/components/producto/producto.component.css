@@ -1,0 +1,38 @@
+/*aca van los estilos*/
+@font-face {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    src: url();
+}
+
+ul {
+    justify-content: center;
+    justify-items: center;
+}
+
+li{
+    padding: 10px;
+}
+
+button{
+    margin: 20px;
+    border-radius: 30px;
+    font-family: Verdana;
+}
+
+.aceptar{
+    background-color: green;
+    color: white;
+}
+
+.cancelar{
+    background-color: red;
+    color: white;
+}
+
+label{
+    font-family: Verdana;
+}
+
+input{
+    border-radius: 30px;
+}
