@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { 
-  FormBuilder, 
-  FormControl, 
+  FormBuilder,
   FormGroup, 
   Validators 
 } from '@angular/forms';
@@ -33,6 +32,7 @@ export class VentaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.createForm();
   }
 
 }
