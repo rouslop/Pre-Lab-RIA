@@ -29,10 +29,17 @@ button{
     color: white;
 }
 
-label{
+label, u{
     font-family: Verdana;
+    text-align: center;
 }
 
 input{
     border-radius: 30px;
+}
+
+div{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }

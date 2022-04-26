@@ -13,3 +13,10 @@ export class ClientesComponent implements OnInit {
   }
 
 }
+/*
+let form = document.getElementById("form");
+
+function enviarFormulario(): void {
+      form.submit();
+}
+*/
