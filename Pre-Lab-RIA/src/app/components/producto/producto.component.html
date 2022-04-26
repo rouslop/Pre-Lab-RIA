@@ -1,20 +1,20 @@
-<form action="" method="post">
+<form novalidate [formGroup]="producto" (ngSubmit)="enviar()">
     <ul>
      <li>
        <label for="name">Nombre:</label>
-       <input type="text" id="name" name="name">
+       <input type="text" formControlName="name">
      </li>
      <li>
        <label for="dir">Direccion</label>
-       <input type="text" id="dir" name="dir">
+       <input type="text" formControlName="dir">
      </li>
      <li>
        <label for="precio">Precio:</label>
-       <input type="numeric" id="precio" name="precio">
+       <input type="numeric"  min="0" formControlName="precio">
      </li>
     </ul>
     <div>
-      <button type="submit" class="aceptar">Confirmar</button>
+      <button type="submit" class="aceptar" [disabled]="producto.invalid">Confirmar</button>
       <button type="reset" class="cancelar">Cancelar</button>
   </div>
-   </form>
+</form>

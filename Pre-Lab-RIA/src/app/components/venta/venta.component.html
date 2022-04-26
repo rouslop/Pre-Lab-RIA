@@ -1,21 +1,21 @@
-<form action="" method="post">
+<form novalidate [formGroup]="venta" (ngSubmit)="enviar()">
     <ul>
      <li>
        <label class="red" for="name">Nombre del cliente:</label>
-       <input type="text" id="name" name="name">
+       <input type="text"  formControlName="name">
      </li>
      <li>
        <label for="dir">Fecha de venta . 
        </label>
-       <input type="date" id="fecha" name="fecha">
+       <input type="date"  formControlName="name">
      </li>
      <li>
        <label for="precio">Precio:</label>
-       <input type="text" id="producto" name="producto">
+       <input type="text" formControlName="name">
      </li>
     </ul>
     <div>
-      <button type="submit" class="aceptar">Confirmar</button>
+      <button type="submit" class="aceptar" [disabled]="venta.invalid">Confirmar</button>
       <button type="reset" class="cancelar">Cancelar</button>
   </div>
  
