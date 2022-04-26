@@ -2,41 +2,41 @@
 <div>
     <u>Ingrese los datos del cliente</u>
 
-<form id="form">
+<form novalidate [formGroup]="form" (ngSubmit)="enviar()">
 <ul>
     <li>
         <label>Documento:  </label>
-        <input type="number" min="0" id="ci">
+        <input type="number" min="0" formControlName="cedula">
     </li>
 
     <li>
         <label>Nombre:  </label>
-        <input type="text" id="nombre">
+        <input type="text" formControlName="nombre">
     </li>
 
     <li>
         <label>Apellido:  </label>
-        <input type="text" id="apellido">
+        <input type="text" formControlName="apellido">
     </li>
     
     <li>
         <label>Fecha de Nacimiento:  </label>
-        <input type="date" id="fechaNac">
+        <input type="date" formControlName="fechaNac">
     </li>
     
     <li>
         <label>Dirección:  </label>
-        <input type="text" id="dir">
+        <input type="text" formControlName="direccion">
     </li>
     
     <li>
         <label>Teléfono:  </label>
-        <input type="number" min="0" id="tel">
+        <input type="number" min="0" formControlName="telefono">
     </li>
     
 </ul>
 <div>
-    <button type="submit" class="aceptar">Confirmar</button>
+    <button type="submit" class="aceptar" [disabled]="form.invalid">Confirmar</button>
     <button type="reset" class="cancelar">Cancelar</button>
 </div>
 </form>
