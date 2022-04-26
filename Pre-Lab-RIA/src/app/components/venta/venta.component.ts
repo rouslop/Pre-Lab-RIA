@@ -5,19 +5,31 @@ import {
   Validators 
 } from '@angular/forms';
 
+class producto {
+  nombre: string;
+  fecha: string;
+  producto: string;
+  
+constructor(n:string, dir:string, p:string) {
+
+    this.nombre = n;
+    this.fecha = dir;
+    this.producto = p;
+}}
+
 @Component({
   selector: 'app-venta',
   templateUrl: './venta.component.html',
   styleUrls: ['./venta.component.css']
 })
 export class VentaComponent implements OnInit {
-  public venta: FormGroup;
+  venta: FormGroup;
   constructor(private _fb: FormBuilder) { }
 
   createForm(){
     this.venta = this._fb.group({
       name: ["", Validators.required],
-      dir: ["", Validators.required],
+      fecha: ["", Validators.required],
       precio: ["",[ Validators.required,Validators.min(0),]]
     });
   }
