@@ -5,17 +5,6 @@ import {
   Validators 
 } from '@angular/forms';
 
-class producto {
-  nombre: string;
-  fecha: string;
-  producto: string;
-  
-constructor(n:string, dir:string, p:string) {
-
-    this.nombre = n;
-    this.fecha = dir;
-    this.producto = p;
-}}
 
 @Component({
   selector: 'app-venta',
