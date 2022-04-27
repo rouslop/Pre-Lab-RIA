@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { allowedNodeEnvironmentFlags } from 'process';
+import { cliente } from '../class/cliente';
 
 @Component({
   selector: 'app-clientes',
@@ -9,8 +10,9 @@ import { allowedNodeEnvironmentFlags } from 'process';
 })
 
 export class ClientesComponent implements OnInit {
-  form: FormGroup;
-  constructor(private _fb: FormBuilder) { }
+  constructor(
+    public form: FormGroup,
+    private _fb: FormBuilder) { }
 
   createForm(){
     this.form = this._fb.group({
@@ -42,26 +44,14 @@ export class ClientesComponent implements OnInit {
       let ci = this.form.get('cedula')?.value;
       let tel = this.form.get('telefono')?.value;
       let fecha = this.form.get('fechaNac')?.value;
+      let dir = this.form.get('direccion')?.value;
 
-      /*let client = new Cliente(n,a,ci,tel,fecha);*/
+      let client = new cliente(n,a,ci,tel,dir,fecha);
+      localStorage.setItem(ci, cliente.toString());
+      
     }
   }
 
 }
-class Cliente {
-  cedula: number;
-  nombre: string;
-  apellido: string;
-  telefono: number;
-  direccion: string;
-  fechaNac: string;
-    
 
-constructor(n:string, a:string, ci:number, tel:number, dir:string, f:string) {
-    this.apellido = a;
-    this.cedula = ci;
-    this.nombre = n;
-    this.telefono = tel;
-    this.direccion = dir;
-    this.fechaNac = f;
-}}
+console.log(localStorage.getItem('ci'));
