@@ -10,5 +10,15 @@ export class producto {
       this.direccion = dir;
       this.precio = p;
       //this.img = im;
-  }}
+  }
+
+  toString(): string{
+    let res = 
+    "Producto:  Nombre: "+ this.nombre+
+    "Dirección: "+ this.direccion+
+    " Precio "+ this.precio
+    return res;
+}
+
+}
   

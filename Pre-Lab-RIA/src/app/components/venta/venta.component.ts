@@ -4,6 +4,7 @@ import {
   FormGroup, 
   Validators 
 } from '@angular/forms';
+import {venta} from "./venta"
 
 
 @Component({
@@ -12,8 +13,11 @@ import {
   styleUrls: ['./venta.component.css']
 })
 export class VentaComponent implements OnInit {
-  venta: FormGroup;
-  constructor(private _fb: FormBuilder) { }
+  
+  constructor(
+    public venta: FormGroup,
+    private _fb: FormBuilder
+    ) { }
 
   createForm(){
     this.venta = this._fb.group({
@@ -25,10 +29,11 @@ export class VentaComponent implements OnInit {
 
   enviar(){
     if(this.venta.valid){
-      let name = this.venta.get('name')?.value;
-      let dir = this.venta.get('dir')?.value;
-      let precio = this.venta.get('precio')?.value;
-      /*let producto = new producto(name,dir,precio);*/
+      let producto = this.venta.get('producto')?.value;
+      let fecha = this.venta.get('fecha')?.value;
+      let cliente = this.venta.get('cliente')?.value;
+      let vent = new venta(producto,fecha,cliente);
+      /*localStorage.setItem(vent.toString(), vent.toString());*/
     }
   }
 

@@ -1,4 +1,4 @@
-class Cliente {
+export class Cliente {
     cedula: string;
     nombre: string;
     apellido: string;

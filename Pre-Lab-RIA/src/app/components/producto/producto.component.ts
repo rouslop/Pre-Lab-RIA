@@ -4,7 +4,7 @@ import {
   FormGroup, 
   Validators 
 } from '@angular/forms';
-
+import{producto}from "./producto"
 
 
 @Component({
@@ -14,8 +14,11 @@ import {
 })
 
 export class ProductoComponent implements OnInit {  
-  producto: FormGroup;
-  constructor(private _fb: FormBuilder) { }
+  
+  constructor(
+    public producto: FormGroup,    
+    private _fb: FormBuilder
+    ) { }
 
   createForm(){
     this.producto = this._fb.group({
@@ -30,7 +33,8 @@ export class ProductoComponent implements OnInit {
       let name = this.producto.get('name')?.value;
       let dir = this.producto.get('dir')?.value;
       let precio = this.producto.get('precio')?.value;
-      /*let producto = new producto(name,dir,precio);*/
+      let product = new producto(name,dir,precio);
+      localStorage.setItem(name, producto.toString());
     }
   }
 

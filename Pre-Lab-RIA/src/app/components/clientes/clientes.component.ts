@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { allowedNodeEnvironmentFlags } from 'process';
-import { cliente } from '../class/cliente';
+import { Cliente } from './clase/Cliente';
 
 @Component({
   selector: 'app-clientes',
@@ -46,8 +46,8 @@ export class ClientesComponent implements OnInit {
       let fecha = this.form.get('fechaNac')?.value;
       let dir = this.form.get('direccion')?.value;
 
-      let client = new cliente(n,a,ci,tel,dir,fecha);
-      localStorage.setItem(ci, cliente.toString());
+      let client = new Cliente(n,a,ci,tel,dir,fecha);
+      localStorage.setItem(ci, Cliente.toString());
       
     }
   }
