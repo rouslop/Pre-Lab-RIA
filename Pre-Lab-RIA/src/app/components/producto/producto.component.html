@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="producto" (ngSubmit)="enviar()">
+<form novalidate [formGroup]="product" (submit)="enviar()">
     <ul>
      <li>
        <label for="name">Nombre:</label>
@@ -18,7 +18,7 @@
     </li>
     </ul>
     <div>
-      <button type="submit" class="aceptar" [disabled]="producto.invalid">Confirmar</button>
+      <button type="submit" class="aceptar" [disabled]="product.invalid">Confirmar</button>
       <button type="reset" class="cancelar">Cancelar</button>
   </div>
 </form>

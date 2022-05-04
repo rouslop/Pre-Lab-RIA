@@ -14,35 +14,29 @@ import{producto}from "./producto"
 })
 
 export class ProductoComponent implements OnInit {  
-  
   constructor(
-    public producto: FormGroup,    
+    // public producto: FormGroup,    
     private _fb: FormBuilder
     ) { }
 
-  createForm(){
-    this.producto = this._fb.group({
-      name: ["", Validators.required],
-      dir: ["", Validators.required],
-      precio: ["",[ Validators.required,Validators.min(0),]]
-    });
+
+  product = this._fb.group({
+  name: ["", Validators.required],
+  dir: ["", Validators.required],
+  precio: ["",[ Validators.required,Validators.min(0),]]
+  });
+
+
+  ngOnInit(): void {
   }
 
   enviar(){
-    if(this.producto.valid){
-      let name = this.producto.get('name')?.value;
-      let dir = this.producto.get('dir')?.value;
-      let precio = this.producto.get('precio')?.value;
-      let product = new producto(name,dir,precio);
+    if(this.product.valid){
+      let name = this.product.get('name')?.value;
+      let dir = this.product.get('dir')?.value;
+      let precio = this.product.get('precio')?.value;
+      let produc = new producto(name,dir,precio);
       localStorage.setItem(name, producto.toString());
     }
   }
-
-  ngOnInit(): void {
-    this.createForm();
-  }
-
-  
-  
-
 }

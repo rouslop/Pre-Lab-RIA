@@ -13,20 +13,17 @@ import {venta} from "./venta"
   styleUrls: ['./venta.component.css']
 })
 export class VentaComponent implements OnInit {
-  
   constructor(
-    public venta: FormGroup,
+   
     private _fb: FormBuilder
     ) { }
 
-  createForm(){
-    this.venta = this._fb.group({
+    venta = this._fb.group({
       name: ["", Validators.required],
       fecha: ["", Validators.required],
       precio: ["",[ Validators.required,Validators.min(0),]]
     });
-  }
-
+  
   enviar(){
     if(this.venta.valid){
       let producto = this.venta.get('producto')?.value;
@@ -38,7 +35,6 @@ export class VentaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createForm();
   }
 
 }

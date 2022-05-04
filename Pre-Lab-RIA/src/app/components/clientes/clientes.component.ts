@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { allowedNodeEnvironmentFlags } from 'process';
 import { Cliente } from './clase/Cliente';
 
 @Component({
@@ -11,47 +10,39 @@ import { Cliente } from './clase/Cliente';
 
 export class ClientesComponent implements OnInit {
   constructor(
-    public form: FormGroup,
     private _fb: FormBuilder) { }
 
-  createForm(){
-    this.form = this._fb.group({
-      nombre: ["", Validators.required],
-      apellido: ["", Validators.required],
-      cedula: ["", [
-        Validators.required,
-        Validators.min(8),
-        Validators.max(9)
-      ]],
-      telefono: ["", [
-        Validators.required,
-        Validators.max(9),
-        Validators.min(8)
-      ]],
-      direccion: ["", Validators.required],
-      fechaNac: ["", Validators.required]
-    });
-  }
+  form = this._fb.group({
+    nombre: ["", Validators.required],
+    apellido: ["", Validators.required],
+    cedula: ["", [
+      Validators.required,
+      Validators.min(8),
+      Validators.max(9)
+    ]],
+    telefono: ["", [
+      Validators.required,
+      Validators.max(9),
+      Validators.min(8)
+    ]],
+    direccion: ["", Validators.required],
+    fechaNac: ["", Validators.required]
+  });
+
 
   ngOnInit(): void {
-    this.createForm();
   }
 
   enviar(){
-    if(this.form.valid){
-      let n = this.form.get('nombre')?.value;
-      let a = this.form.get('apellido')?.value;
-      let ci = this.form.get('cedula')?.value;
-      let tel = this.form.get('telefono')?.value;
-      let fecha = this.form.get('fechaNac')?.value;
-      let dir = this.form.get('direccion')?.value;
-
+    let formulario = this.form.value;
+      let n = formulario.nombre;
+      let a = formulario.apellido;
+      let ci = formulario.cedula;
+      let tel = formulario.telefono;
+      let fecha = formulario.fecha; //revisar porqué trae undefined
+      let dir = formulario.direccion;
       let client = new Cliente(n,a,ci,tel,dir,fecha);
-      localStorage.setItem(ci, Cliente.toString());
-      
-    }
+      localStorage.setItem(ci.value, JSON.stringify(client));
   }
 
 }
-
-console.log(localStorage.getItem('ci'));
