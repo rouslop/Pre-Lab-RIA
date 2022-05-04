@@ -1,16 +1,18 @@
+<app-inicio></app-inicio>
+
 <form novalidate [formGroup]="venta" (submit)="enviar()">
+  <u>Ingrese los datos de la venta:</u>
     <ul>
      <li>
-       <label class="red" for="cliente">cliente:</label>
+       <label class="red" for="cliente">Cliente: </label>
        <input type="text"  formControlName="cliente">
      </li>
      <li>
-       <label for="fecha">Fecha de venta . 
-       </label>
+       <label for="fecha">Fecha de venta: </label>
        <input type="date"  formControlName="fecha">
      </li>
      <li>
-       <label for="producto">producto:</label>
+       <label for="producto">Producto: </label>
        <input type="text" formControlName="producto">
      </li>
     </ul>

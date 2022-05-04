@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { InicioComponent  } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     VentaComponent,
     ProductoComponent,
-    ClientesComponent
+    ClientesComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule,AppRoutingModule

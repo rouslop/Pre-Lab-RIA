@@ -1,19 +1,22 @@
+<app-inicio></app-inicio>
+
 <form novalidate [formGroup]="product" (submit)="enviar()">
+  <u>Ingrese los datos del producto:</u>
     <ul>
      <li>
-       <label for="name">Nombre:</label>
+       <label for="name">Nombre: </label>
        <input type="text" formControlName="name">
      </li>
      <li>
-       <label for="dir">Direccion</label>
+       <label for="dir">Direccion: </label>
        <input type="text" formControlName="dir">
      </li>
      <li>
-       <label for="precio">Precio:</label>
+       <label for="precio">Precio: </label>
        <input type="numeric"  min="0" formControlName="precio">
      </li>
      <li>
-      <label for="img">Precio:</label>
+      <label for="img">Imagen: </label>
       <input type="image"  formControlName="img">
     </li>
     </ul>
