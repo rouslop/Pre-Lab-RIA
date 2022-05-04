@@ -2,6 +2,7 @@ button{
     background-color:aquamarine;
     color: black;
     border-radius: 10px;
+    max-width: 20%;
     margin: 5%;
 }
 a{
