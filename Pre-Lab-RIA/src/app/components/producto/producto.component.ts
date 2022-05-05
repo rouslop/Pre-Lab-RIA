@@ -14,10 +14,11 @@ import{producto}from "./producto"
 })
 
 export class ProductoComponent implements OnInit {  
+  public cantidad: number;
   constructor(
     // public producto: FormGroup,    
     private _fb: FormBuilder
-    ) { }
+    ) {this.cantidad = 0; }
 
 
   product = this._fb.group({
@@ -31,12 +32,26 @@ export class ProductoComponent implements OnInit {
   }
 
   enviar(){
-    if(this.product.valid){
-      let name = this.product.get('name')?.value;
-      let dir = this.product.get('dir')?.value;
-      let precio = this.product.get('precio')?.value;
-      let produc = new producto(name,dir,precio);
-      localStorage.setItem(name, producto.toString());
-    }
+      let form = this.product.value;
+      let nombre = form.name;
+      let direcsion = form.dir;
+      let precio = form.precio;
+      let produc = new producto(nombre,direcsion,precio);
+      localStorage.setItem(`producto ${this.cantidad}`, JSON.stringify(produc));
+      this.cantidad +=1
   }
+
+  getProductos() {
+    let ret = []
+    for (let i = 0; i <= this.cantidad; i++) {
+        let aux = window.localStorage.getItem(`produc ${i}`)
+        if (typeof aux === "string") {
+            let produc = JSON.parse(aux)
+           ret.push(new producto(produc.nombre, produc.descripcion, produc.precio /*,produc.img*/))
+        }
+    }
+    return ret
 }
+
+}
+

@@ -9,8 +9,9 @@ import { Cliente } from './clase/Cliente';
 })
 
 export class ClientesComponent implements OnInit {
+  public cantidad: number;
   constructor(
-    private _fb: FormBuilder) { }
+    private _fb: FormBuilder) {this.cantidad = 0; }
 
   form = this._fb.group({
     nombre: ["", Validators.required],
@@ -42,7 +43,18 @@ export class ClientesComponent implements OnInit {
       let fecha = formulario.fecha; //revisar porqué trae undefined
       let dir = formulario.direccion;
       let client = new Cliente(n,a,ci,tel,dir,fecha);
-      localStorage.setItem(ci.value, JSON.stringify(client));
+      localStorage.setItem(`cliente` + this.cantidad, JSON.stringify(client));
   }
 
+  getCliente() {
+    let ret = []
+    for (let i = 0; i <= this.cantidad; i++) {
+        let aux = window.localStorage.getItem(`cliente ${i}`)
+        if (typeof aux === "string") {
+            let Cliente = JSON.parse(aux)
+           ret.push(new Cliente(Cliente.nombre, Cliente.apellido, Cliente.cedula,Cliente.telefono,Cliente.fecha,Cliente.direccion ))
+        }
+    }
+    return ret
+}
 }

@@ -4,7 +4,7 @@ export class producto {
     precio: string;
     //img: string;
   
-  constructor(n:string, dir:string, p:string,/*im:string*/) {
+  constructor(n:string, dir:string, p:string/*,im:string*/) {
   
       this.nombre = n;
       this.direccion = dir;
@@ -15,8 +15,8 @@ export class producto {
   toString(): string{
     let res = 
     "Producto:  Nombre: "+ this.nombre+
-    "Dirección: "+ this.direccion+
-    " Precio "+ this.precio
+    "  Dirección: "+ this.direccion+
+    "   Precio "+ this.precio
     return res;
 }
 
