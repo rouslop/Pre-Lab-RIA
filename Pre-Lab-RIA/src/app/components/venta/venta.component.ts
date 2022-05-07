@@ -7,6 +7,7 @@ import {
 import { Cliente } from '../clientes/clase/Cliente';
 import { producto } from '../producto/producto';
 import {venta} from "./venta"
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -97,7 +98,8 @@ export class VentaComponent implements OnInit {
         let aux = window.localStorage.getItem(`cliente ${i}` )
         if (typeof aux === "string") {
           cli = JSON.parse(aux)
-          if (cli.cedula === form.cliente){
+          if (cli.cedula == form.cliente){
+            console.log("entra por la ci")
             C = cli
           }
         }
@@ -109,7 +111,23 @@ export class VentaComponent implements OnInit {
       console.log( localStorage.getItem(`venta `+ this.cantidadV));
       this.cantidadV = this.cantidadV + 1
       window.localStorage.setItem('cantidadV',this.cantidadV.toString())
+      this.alert();
   }
   ngOnInit(): void {
+  }
+  alert(): void {
+    Swal.fire({
+      text: 'Su compra ha sido realizada con éxito',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+    })
+  }
+
+  error(): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Algo salió mal',
+    })
   }
 }

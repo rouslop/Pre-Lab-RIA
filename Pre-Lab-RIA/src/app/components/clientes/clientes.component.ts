@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from './clase/Cliente';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-clientes',
@@ -47,5 +48,22 @@ export class ClientesComponent implements OnInit {
       console.log( localStorage.getItem(`cliente ` +  this.cantidadC));
       this.cantidadC = this.cantidadC  + 1;
       window.localStorage.setItem('cantidadC',this.cantidadC.toString())
+      this.alert();
+  }
+
+  alert(): void {
+    Swal.fire({
+      text: 'El cliente ha sido ingresado con éxito',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+    })
+  }
+
+  error(): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Algo salió mal',
+    })
   }
 }

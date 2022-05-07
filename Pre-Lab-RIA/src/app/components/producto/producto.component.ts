@@ -5,6 +5,7 @@ import {
   Validators 
 } from '@angular/forms';
 import{producto}from "./producto"
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-producto',
@@ -48,5 +49,22 @@ export class ProductoComponent implements OnInit {
       console.log( localStorage.getItem(`producto`+ this.cantidadP));
       this.cantidadP =this.cantidadP + 1;
       window.localStorage.setItem('cantidadP',this.cantidadP.toString())
+      this.alert();
+  }
+
+  alert(): void {
+    Swal.fire({
+      text: 'El producto ha sido ingresado con éxito',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+    })
+  }
+
+  error(): void {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Algo salió mal',
+    })
   }
 }
