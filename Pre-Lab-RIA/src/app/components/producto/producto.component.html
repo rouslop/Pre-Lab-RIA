@@ -8,17 +8,15 @@
        <input type="text" formControlName="name">
      </li>
      <li>
-       <label for="dir">Direccion: </label>
+       <label for="dir">Descripcion: </label>
        <input type="text" formControlName="dir">
      </li>
      <li>
        <label for="precio">Precio: </label>
        <input type="numeric"  min="0" formControlName="precio">
      </li>
-     <li>
-      <label for="img">Imagen: </label>
-      <input type="image"  formControlName="img">
-    </li>
+     <p>Imagen:</p>
+               <input type="file" name="imagen" formControlName="imagen"> 
     </ul>
     <div>
       <button type="submit" class="aceptar" [disabled]="product.invalid">Confirmar</button>

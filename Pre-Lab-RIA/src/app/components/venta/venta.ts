@@ -6,9 +6,9 @@ export class venta {
     fecha: string;
     produc: producto;
     
-  constructor(c:Cliente, dir:string, p:producto) {
+  constructor(c:Cliente, F:string, p:producto) {
       this.client = c;
-      this.fecha = dir;
+      this.fecha = F;
       this.produc = p;
   }
 

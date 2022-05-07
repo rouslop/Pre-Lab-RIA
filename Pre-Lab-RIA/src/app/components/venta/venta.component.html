@@ -6,7 +6,9 @@
      <li>
        <label class="red" for="cliente">Cliente: </label>
        <select type="Select"  formControlName="cliente">
-         <!-- listar nombres de clientes-->
+          <option *ngFor="let title of clientes" [value]="title">
+            {{title}}
+        </option>
        </select>
      </li>
      <li>
@@ -16,8 +18,10 @@
      <li>
        <label for="producto">Producto: </label>
        <select formControlName="producto">
-        <!-- listar nombres de productos-->
-       </select>
+        <option *ngFor="let title of productos " [value]="title">
+          {{title}}
+      </option>
+     </select>
      </li>
     </ul>
     <div>

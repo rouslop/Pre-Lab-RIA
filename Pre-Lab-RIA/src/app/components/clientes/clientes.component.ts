@@ -9,9 +9,9 @@ import { Cliente } from './clase/Cliente';
 })
 
 export class ClientesComponent implements OnInit {
-  public cantidad: number;
+  public cantidadC: number;
   constructor(
-    private _fb: FormBuilder) {this.cantidad = 0; }
+    private _fb: FormBuilder) {this.cantidadC = 0; }
 
   form = this._fb.group({
     nombre: ["", Validators.required],
@@ -30,31 +30,22 @@ export class ClientesComponent implements OnInit {
     fechaNac: ["", Validators.required]
   });
 
-
   ngOnInit(): void {
   }
 
   enviar(){
     let formulario = this.form.value;
-      let n = formulario.nombre;
-      let a = formulario.apellido;
-      let ci = formulario.cedula;
-      let tel = formulario.telefono;
-      let fecha = formulario.fecha; //revisar porqué trae undefined
-      let dir = formulario.direccion;
-      let client = new Cliente(n,a,ci,tel,dir,fecha);
-      localStorage.setItem(`cliente` + this.cantidad, JSON.stringify(client));
+      let Cli = { 
+        nombre : formulario.nombre,
+        apellido : formulario.apellido,
+        cedula : formulario.cedula,
+        telefono : formulario.telefono,
+        fecha : formulario.fecha, //revisar porqué trae undefined
+        direccion : formulario.direccion
+     }
+      localStorage.setItem(`cliente ` + this.cantidadC, JSON.stringify(Cli));
+      console.log( localStorage.getItem(`cliente ` +  this.cantidadC));
+      this.cantidadC = this.cantidadC  + 1;
+      window.localStorage.setItem('cantidadC',this.cantidadC.toString())
   }
-
-  getCliente() {
-    let ret = []
-    for (let i = 0; i <= this.cantidad; i++) {
-        let aux = window.localStorage.getItem(`cliente ${i}`)
-        if (typeof aux === "string") {
-            let Cliente = JSON.parse(aux)
-           ret.push(new Cliente(Cliente.nombre, Cliente.apellido, Cliente.cedula,Cliente.telefono,Cliente.fecha,Cliente.direccion ))
-        }
-    }
-    return ret
-}
 }
