@@ -1,5 +1,3 @@
-<!-- lo que va adentro del body-->
-<app-inicio></app-inicio>
 <u>Ingrese los datos del cliente</u>
 
     <form novalidate [formGroup]="form" (submit)="enviar()">
@@ -36,7 +34,7 @@
             
         </ul>
         <div>
-            <button type="submit" class="aceptar">Confirmar</button>
+            <button type="submit" class="aceptar"[disabled]="form.invalid">Confirmar</button>
             <button type="reset" class="cancelar">Cancelar</button>
         </div>
     </form>

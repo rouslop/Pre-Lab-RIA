@@ -7,7 +7,6 @@ import { VentaComponent } from './components/venta/venta.component';
 
 
 const rutas: Routes = [
-    { path: '', component: InicioComponent },
     { path: 'cliente', component: ClientesComponent },
     { path: 'venta', component: VentaComponent },
     { path: 'producto', component: ProductoComponent },

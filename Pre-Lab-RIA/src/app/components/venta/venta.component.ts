@@ -117,9 +117,11 @@ export class VentaComponent implements OnInit {
   }
   alert(): void {
     Swal.fire({
-      text: 'Su compra ha sido realizada con éxito',
+      position: 'center',
       icon: 'success',
-      confirmButtonText: 'Ok',
+      title: 'Su compra ha sido realizada con éxito',
+      showConfirmButton: false,
+      timer: 1000
     })
   }
 

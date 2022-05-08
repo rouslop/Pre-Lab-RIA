@@ -33,6 +33,13 @@ label, u{
     text-align: center;
 }
 
+input.ng-pristine.ng-invalid.ng-touched{
+    border : solid 2px tomato
+}
+input.ng-dirty.ng-touched.ng-invalid{
+    border : solid 2px tomato
+}
+
 input{
     border-radius: 30px;
 }

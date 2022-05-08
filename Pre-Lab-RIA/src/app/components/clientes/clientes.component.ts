@@ -19,13 +19,13 @@ export class ClientesComponent implements OnInit {
     apellido: ["", Validators.required],
     cedula: ["", [
       Validators.required,
-      Validators.min(8),
-      Validators.max(9)
+      Validators.minLength(8),
+      Validators.maxLength(9)
     ]],
     telefono: ["", [
       Validators.required,
-      Validators.max(9),
-      Validators.min(8)
+      Validators.maxLength(9),
+      Validators.minLength(8)
     ]],
     direccion: ["", Validators.required],
     fechaNac: ["", Validators.required]
@@ -53,9 +53,11 @@ export class ClientesComponent implements OnInit {
 
   alert(): void {
     Swal.fire({
-      text: 'El cliente ha sido ingresado con éxito',
+      position: 'center',
       icon: 'success',
-      confirmButtonText: 'Ok',
+      title: 'El cliente ha sido ingresado con éxito',
+      showConfirmButton: false,
+      timer: 1000,
     })
   }
 

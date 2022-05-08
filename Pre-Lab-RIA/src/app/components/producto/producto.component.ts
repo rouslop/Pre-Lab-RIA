@@ -54,9 +54,11 @@ export class ProductoComponent implements OnInit {
 
   alert(): void {
     Swal.fire({
-      text: 'El producto ha sido ingresado con éxito',
+      position: 'center',
       icon: 'success',
-      confirmButtonText: 'Ok',
+      title: 'El producto ha sido ingresado con éxito',
+      showConfirmButton: false,
+      timer: 1000
     })
   }
 
@@ -67,4 +69,8 @@ export class ProductoComponent implements OnInit {
       text: 'Algo salió mal',
     })
   }
+
+  get precio(){return this.product.get('precio')}
+  get Descripsion(){return this.product.get('descripsion')}
+  get name(){return this.product.get('name')}
 }
