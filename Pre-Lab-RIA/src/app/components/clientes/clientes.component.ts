@@ -33,7 +33,6 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   enviar(){
     let formulario = this.form.value;
       let Cli = { 
@@ -50,7 +49,6 @@ export class ClientesComponent implements OnInit {
       window.localStorage.setItem('cantidadC',this.cantidadC.toString())
       this.alert();
   }
-
   alert(): void {
     Swal.fire({
       position: 'center',
@@ -60,7 +58,6 @@ export class ClientesComponent implements OnInit {
       timer: 1000,
     })
   }
-
   error(): void {
     Swal.fire({
       icon: 'error',
